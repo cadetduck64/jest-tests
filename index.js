@@ -1,3 +1,6 @@
+
+
+
 const capitalize = 'uppercase'
 
 const uppercaseMaker = (word) => {
@@ -85,10 +88,40 @@ const ceasarCipher = (word, cypher) => {
     return encryptedWord.join('')
 }
 
-ceasarCipher('encrypted message', 10)
+// ceasarCipher('encrypted message', 10)
 
 
-export  {uppercaseMaker, reverseMaker, calculator, ceasarCipher};
+const analyzeArray = (arrayPar) => {
+    const analysis = {
+        average: undefined,
+        min: undefined,
+        max: undefined,
+        length: arrayPar.length
+    }
+
+    const analaysisMax = arrayPar.forEach(element => {            
+        if (analysis.max <= element || analysis.max == undefined)
+        {analysis.max = element}
+    })
+
+    const analaysisMin = arrayPar.forEach(element => {            
+        if (analysis.min >= element || analysis.min == undefined)
+        {analysis.min = element}
+    })
+
+    const analaysisAverage = arrayPar.reduce(
+        (c, b) => c + b, arrayPar[0],
+        )
+
+    analysis.average = Math.floor(analaysisAverage/analysis.length)
+
+    return analysis
+}
+
+analyzeArray([1,8,3,4,2,6])
+
+
+export  {uppercaseMaker, reverseMaker, calculator, ceasarCipher, analyzeArray};
 
 // export default uppercaseMaker;
 // export default reverseMaker;
